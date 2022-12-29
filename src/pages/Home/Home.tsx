@@ -38,7 +38,6 @@ export const Home: React.FunctionComponent = () => {
           name="menu"
           bundle={'MaterialIcons'}
           size="giant"
-          onPress={AddTask}
           color="#ffdb77"
         />
       </ContainerHeader>
