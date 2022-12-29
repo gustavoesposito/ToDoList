@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import Button from '../../components/Button/Button';
 import Item from '../../components/Item/Item';
 import { ContainerToDo } from '../../components/List/style';
@@ -13,16 +14,29 @@ import {
   HeaderToDo,
 } from './styles';
 
+interface Task {
+  id: string;
+  title: string;
+}
+
 export const Home: React.FunctionComponent = () => {
-  const [newTask, setNewTask] = useState();
-  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
+  const [listTask, setListTask] = useState<Task[]>([]);
+
+  const addTask = () => {
+    const data = {
+      id: String(new Date().getTime()),
+      title: newTask ? newTask : 'Lista Vazia',
+    };
+    setListTask([...listTask, data]);
+  };
   return (
     <Container>
       <Title>Tarefas</Title>
       <Header>
         <FormText>Adicione um novo estudo</FormText>
-        <TxtInput placeholder="Adicione uma tarefa" />
-        <Button title="Adicionar" />
+        <TxtInput placeholder="Adicione uma tarefa" onChangeText={setNewTask} />
+        <Button title="Adicionar" onPress={addTask} />
       </Header>
 
       {/* parte de baixo */}
@@ -30,10 +44,11 @@ export const Home: React.FunctionComponent = () => {
       <ContainerToDo>
         <HeaderToDo>
           <TitleList>Tarefas do dia</TitleList>
-          {tasks.map((item, index) => (
-            <ToDoList key={index}>
-              <Item task={item} />
-            </ToDoList>
+          <Text>{newTask}</Text>
+          {listTask.map(task => (
+            <TouchableOpacity key={task.id}>
+              <Text>{task.title}</Text>
+            </TouchableOpacity>
           ))}
         </HeaderToDo>
       </ContainerToDo>
