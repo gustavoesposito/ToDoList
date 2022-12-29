@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import Button from '../../components/Button/Button';
-import Item from '../../components/Item/Item';
 import { ContainerToDo } from '../../components/List/style';
 import {
   Container,
@@ -9,7 +8,6 @@ import {
   Title,
   FormText,
   TitleList,
-  ToDoList,
   TxtInput,
   HeaderToDo,
 } from './styles';
