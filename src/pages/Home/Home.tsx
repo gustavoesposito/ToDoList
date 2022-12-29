@@ -44,7 +44,6 @@ export const Home: React.FunctionComponent = () => {
       <ContainerToDo>
         <HeaderToDo>
           <TitleList>Tarefas do dia</TitleList>
-          <Text>{newTask}</Text>
           {listTask.map(task => (
             <TouchableOpacity key={task.id}>
               <Text>{task.title}</Text>
