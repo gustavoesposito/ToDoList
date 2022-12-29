@@ -10,6 +10,9 @@ export const ContainerToDo = styled.View`
   flex: 1;
   align-items: center;
 `;
+export const ContainerHeader = styled.View`
+  flex-direction: row;
+`;
 
 export const Header = styled.View`
   align-items: center;
@@ -30,9 +33,11 @@ export const HeaderToDo = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primaryLight};
   border-radius: 10px;
+  margin-top: 20px;
 `;
 
 export const Title = styled.Text`
+  padding-left: 30px;
   font-size: 40px;
   font-weight: bold;
   margin-top: 40px;
@@ -56,7 +61,6 @@ export const ToDoList = styled.View`
   margin-bottom: 10px;
   background-color: ${({ theme }) => theme.colors.gray500};
   border-radius: 5px;
-  padding: 2px;
 `;
 
 export const FormText = styled.Text`

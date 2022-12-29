@@ -2,26 +2,39 @@ import React, { useState } from 'react';
 import Button from '../../components/Button/Button';
 import Item from '../../components/Item/Item';
 import { ContainerToDo } from '../../components/List/style';
+import Icon from '../../components/Icon/Icon';
 import {
   Container,
   Header,
+  HeaderToDo,
+  ContainerHeader,
   Title,
   FormText,
   TitleList,
   ToDoList,
   TxtInput,
-  HeaderToDo,
 } from './styles';
 
 export const Home: React.FunctionComponent = () => {
-  const [newTask, setNewTask] = useState();
+  const [newTask, setNewTask] = useState('');
   const [tasks, setTasks] = useState([]);
+
   return (
     <Container>
-      <Title>Tarefas</Title>
+      <ContainerHeader>
+        <Title>Tarefas</Title>
+        <Icon
+          name="menu"
+          bundle={'MaterialIcons'}
+          size="giant"
+          onPress={AddTask}
+          color="#ffdb77"
+        />
+      </ContainerHeader>
+
       <Header>
         <FormText>Adicione um novo estudo</FormText>
-        <TxtInput placeholder="Adicione uma tarefa" />
+        <TxtInput placeholder="Adicione uma tarefa" onChangeText={setNewTask} />
         <Button title="Adicionar" />
       </Header>
 
