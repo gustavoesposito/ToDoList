@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Switch, Text, TouchableOpacity } from 'react-native';
+import { Switch, ScrollView, Text, TouchableOpacity } from 'react-native';
 import Button from '../../components/Button/Button';
+import Icon from '../../components/Icon/Icon';
 import { ContainerToDo } from '../../components/List/style';
 import { T } from '../../global/styles/Texts';
 import { ThemeContext, ThemeType } from '../../global/Theme/Theme';
@@ -24,7 +25,7 @@ interface Task {
   title: string;
 }
 
-export const Home: React.FunctionComponent = () => {
+export const Home: React.FC = () => {
   const [newTask, setNewTask] = useState('');
   const [listTask, setListTask] = useState<Task[]>([]);
 
@@ -38,6 +39,8 @@ export const Home: React.FunctionComponent = () => {
       title: newTask ? newTask : 'Lista Vazia',
     };
     setListTask([...listTask, data]);
+
+    function handleRemoveToDo() {}
   };
   return (
     <Container>
@@ -48,12 +51,6 @@ export const Home: React.FunctionComponent = () => {
             <T>Tema</T>
             <Switch onValueChange={toggleTheme} value={darkModeIsEnabled} />
           </ButtonSwitch>
-          {/* <Icon
-            name="menu"
-            bundle={'MaterialIcons'}
-            size="giant"
-            color="#ffdb77"
-          /> */}
         </HeaderFunc>
       </ContainerHeader>
 
@@ -67,15 +64,26 @@ export const Home: React.FunctionComponent = () => {
       <ContainerToDo>
         <HeaderToDo>
           <TitleList>Tarefas do dia</TitleList>
-          {listTask.map(task => (
-            <Btn>
-              <TouchableOpacity key={task.id}>
-                <TaskText>
-                  <Text>{task.title}</Text>
-                </TaskText>
-              </TouchableOpacity>
-            </Btn>
-          ))}
+          <ScrollView>
+            {listTask.map(task => (
+              // eslint-disable-next-line react/jsx-key
+              <>
+                <Icon
+                  name="trash-can"
+                  bundle={'MaterialCommunityIcons'}
+                  size="huge"
+                  color="#e83f5b"
+                />
+                <Btn>
+                  <TouchableOpacity key={task.id}>
+                    <TaskText>
+                      <Text>{task.title}</Text>
+                    </TaskText>
+                  </TouchableOpacity>
+                </Btn>
+              </>
+            ))}
+          </ScrollView>
         </HeaderToDo>
       </ContainerToDo>
     </Container>

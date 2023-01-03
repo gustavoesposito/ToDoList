@@ -17,7 +17,6 @@ export const HeaderFunc = styled.View`
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding: 5px;
 `;
 
@@ -51,7 +50,6 @@ export const HeaderToDo = styled.View`
   align-items: center;
   width: 365px;
   height: 500px;
-  align-items: center;
   background-color: ${({ theme }) => theme.colors.primaryLight};
   border-radius: 10px;
   margin-top: 20px;
