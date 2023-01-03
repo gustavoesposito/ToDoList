@@ -5,6 +5,7 @@ import { ContainerToDo } from '../../components/List/style';
 import { T } from '../../global/styles/Texts';
 import { ThemeContext, ThemeType } from '../../global/Theme/Theme';
 import {
+  Btn,
   Container,
   Header,
   HeaderToDo,
@@ -15,6 +16,7 @@ import {
   FormText,
   TitleList,
   TxtInput,
+  TaskText,
 } from './styles';
 
 interface Task {
@@ -66,9 +68,13 @@ export const Home: React.FunctionComponent = () => {
         <HeaderToDo>
           <TitleList>Tarefas do dia</TitleList>
           {listTask.map(task => (
-            <TouchableOpacity key={task.id}>
-              <Text>{task.title}</Text>
-            </TouchableOpacity>
+            <Btn>
+              <TouchableOpacity key={task.id}>
+                <TaskText>
+                  <Text>{task.title}</Text>
+                </TaskText>
+              </TouchableOpacity>
+            </Btn>
           ))}
         </HeaderToDo>
       </ContainerToDo>

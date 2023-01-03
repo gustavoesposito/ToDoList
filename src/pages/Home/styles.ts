@@ -21,6 +21,15 @@ export const HeaderFunc = styled.View`
   padding: 5px;
 `;
 
+export const Btn = styled.View`
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.gray800};
+  width: 100px;
+  height: 30px;
+  padding-top: 15px;
+  margin-top: 10px;
+`;
+
 export const ButtonSwitch = styled.View`
   color: ${({ theme }) => theme.colors.light};
   margin: 50px 15px 0 0;
@@ -46,6 +55,12 @@ export const HeaderToDo = styled.View`
   background-color: ${({ theme }) => theme.colors.primaryLight};
   border-radius: 10px;
   margin-top: 20px;
+`;
+
+export const TaskText = styled.Text`
+  text-align: center;
+  margin-top: -10px;
+  color: ${({ theme }) => theme.colors.light};
 `;
 
 export const Title = styled.Text`
